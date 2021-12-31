@@ -1,15 +1,15 @@
 class Solution {
 public:
-    vector<vector<string>> groupAnagrams(vector<string>& st) 
+    vector<vector<string>> groupAnagrams(vector<string>& str) 
     {
         string s;
         unordered_map <string,vector <string> > b;
         vector <int> a(26,0);
-        for(auto &i:st)
+        for(auto &i:str)
         {
-            for(auto &l:a)
+            for(int i=0;i<26;i++)
             {
-                l=0;
+                a[i]=0;
             }
             s="";
             for(auto&j:i)
@@ -18,17 +18,9 @@ public:
             }
             for(auto&k:a)
             {
-                s=s+"#"+to_string(k);
+                s+="#"+to_string(k);
             }
-            if(b.find(s)==b.end())
-            {
-                b[s]={};
-                b[s].push_back(i);
-            }
-            else
-            {
-                b[s].push_back(i);
-            }
+            b[s].push_back(i);
         }
         vector <vector <string>> res;
         for(auto &i:b)
