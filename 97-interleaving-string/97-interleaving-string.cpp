@@ -1,16 +1,5 @@
 class Solution {
 public:
-    void print(vector <vector <bool>> &dp)
-    {
-        for(auto&i:dp)
-        {
-            for(int j=0;j<i.size();j++)
-            {
-                cout<<i[j]<<" ";
-            }
-            cout<<endl;
-        }
-    }
     bool isInterleave(string a, string b, string c) 
     {
         vector <vector <bool>> dp(a.size()+1,vector <bool> (b.size()+1,false));
@@ -47,7 +36,6 @@ public:
                 }
             }
         }
-        print(dp);
         return dp[a.size()][b.size()];
     }
 };
